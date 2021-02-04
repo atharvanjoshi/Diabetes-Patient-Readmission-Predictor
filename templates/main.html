@@ -1,0 +1,289 @@
+<html>
+    <head>
+        <title>
+            Diabetes Readmittion Prediction
+        </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+        <body style = "background-color:White; vertical-align:middle">
+            <div class="w3-top">
+                <div class="w3-bar w3-black w3-card">
+                  <label class="w3-bar-item w3-padding-large"></a>DIABETES PATIENT READMISSION PREDICTION</label>
+                  </div>
+                </div>
+                <div style="display: block;text-align: center;">
+        <form action="{{ url_for('main') }}" method="POST">
+            <br><br><br>
+            <div style="width: 50%; float: left;padding: 20px;">
+            <label> Race:</label> <select name="race">
+                <option value="0">Caucasian</option>
+                <option value="1">African - American</option>
+                <option value="2">Asian</option>
+                <option value="3">Hispanic</option>
+                <option value="4">Other</option>
+            </select>
+            <br><br>
+        <label>Gender:</label> <select name="gender">Race:
+                <option value="0">Male</option>
+                <option value="1">Female</option>
+                <option value="2">Unknown/Invalid</option>
+            </select>
+            <br><br>
+            <label>Age: </label>
+            <input type="number" name="age" required>
+            <br><br>
+            <label>Admission Type:</label> <select name="admission_type_id">
+                <option value="1">Emergency</option>
+                <option value="2">Urgent</option>
+                <option value="3">Elective</option>
+                <option value="4">Newborn</option>
+                <option value="5">Not Available</option>
+                <option value="6">NULL</option>
+                <option value="7">Trauma Center</option>
+                <option value="8">Not Mapped</option>
+            </select>
+            <br><br>
+            Discharge Type:<select name="discharge_disposition_id">
+                <option value="1">Discharged to home</option>
+                <option value="2">Discharged/transferred to another short term hospital</option>
+                <option value="3">Discharged/transferred to SNF</option>
+                <option value="4">Discharged/transferred to ICF</option>
+                <option value="5">Discharged/transferred to another type of inpatient care institution</option>
+                <option value="6">Discharged/transferred to home with home health service</option>
+                <option value="7">Left AMA</option>
+                <option value="8">Discharged/transferred to home under care of Home IV provider</option>
+                <option value="9">Admitted as an inpatient to this hospital</option>
+                <option value="10">Neonate discharged to another hospital for neonatal aftercare</option>
+                <option value="11">Expired</option>
+                <option value="12">Still patient or expected to return for outpatient services</option>
+                <option value="13">Hospice / home</option>
+                <option value="14">Hospice / medical facility</option>
+                <option value="15">Discharged/transferred within this institution to Medicare approved swing bed</option>
+                <option value="16">Discharged/transferred/referred another institution for outpatient services</option>
+                <option value="17">Discharged/transferred/referred to this institution for outpatient services</option>
+                <option value="18">NULL</option>
+                <option value="19">Expired at home. Medicaid only, hospice.</option>
+                <option value="20">Expired in a medical facility. Medicaid only, hospice.</option>
+                <option value="22">Discharged/transferred to another rehab fac including rehab units of a hospital .</option>
+                <option value="23">Discharged/transferred to a long term care hospital.</option>
+                <option value="24">Discharged/transferred to a nursing facility certified under Medicaid but not certified under Medicare.</option>
+                <option value="25">Not Mapped</option>
+                <option value="27">Discharged/transferred to a federal health care facility.</option>
+            </select>
+            <br><br>
+            Admission Source: <select name="admission_source_id">
+                <option value="1">Physician Referral</option>
+                <option value="2">Clinic Referral</option>
+                <option value="3">HMO Referral</option>
+                <option value="4">Transfer from a hospital</option>
+                <option value="5">Transfer from a Skilled Nursing Facility (SNF)</option>
+                <option value="6">Transfer from another health care facility</option>
+                <option value="7">Emergency Room</option>
+                <option value="8">Court/Law Enforcement</option>
+                <option value="9">Not Available</option>
+                <option value="10">Transfer from critial access hospital</option>
+                <option value="11">Normal Delivery</option>
+                <option value="13">Sick Baby</option>
+                <option value="14">Extramural Birth</option>
+                <option value="17">NULL</option>
+                <option value="20">Not Mapped</option>
+                <option value="22">Transfer from hospital inpt/same fac reslt in a sep claim</option>
+                <option value="25">Transfer from Ambulatory Surgery Center</option>
+            </select>
+            <br><br>
+            <label>Time in Hospital: </label>
+            <input type="number" name="time_in_hospital" required>
+            <br><br>
+            <label>Number of Lab Procedures: </label>
+            <input type="number" name="num_lab_procedures" required>
+            <br><br>
+            <label>Number of Procedures: </label>
+            <input type="number" name="num_procedures" required>
+            <br><br>
+            <label>Number of Medications: </label>
+            <input type="number" name="num_medications" required>
+            <br><br>
+            <label>Number of Outpatient Visits: </label>
+            <input type="number" name="number_outpatient"required>
+            <br><br>
+            <label>Number of Emergency Visits: </label>
+            <input type="number" name="number_emergency" required>
+            <br><br>
+            <label>Number of Inpatient Visits: </label>
+            <input type="number" name="number_inpatient" required>
+            <br><br>
+            <label>Number of Diagnoses: </label>
+            <input type="number" name="number_diagnoses" required>
+            <br><br>
+            Max GLU Serum: <select name="max_glu_serum">
+                <option value="0">None</option>
+                <option value="1">>300</option>
+                <option value="2">Norm</option>
+                <option value="3">>200</option>
+            </select>
+            <br><br>
+            A1Cresult: <select name="A1Cresult">
+                <option value="0">None</option>
+                <option value="1">>7</option>
+                <option value="2">>8</option>
+                <option value="3">Norm</option>
+            </select>
+            <br><br>
+            Metformin: <select name="metformin">
+                <option value="0">No</option>
+                <option value="1">Steady</option>
+                <option value="2">Up</option>
+                <option value="3">Down</option>
+            </select>
+            <br><br>
+            Repaglinide: <select name="repaglinide">
+                <option value="0">No</option>
+                <option value="1">Up</option>
+                <option value="2">Steady</option>
+                <option value="3">Down</option>
+            </select>
+            <br><br>
+            Nateglinide: <select name="nateglinide">
+                <option value="0">No</option>
+                <option value="1">Steady</option>
+                <option value="2">Down</option>
+                <option value="3">Up</option>
+            </select>
+        </div>
+        <div style="width: 50%; float: left;padding: 20px;">
+            Chlorpropamide: <select name="chlorpropamide">
+                <option value="0">No</option>
+                <option value="1">Steady</option>
+                <option value="2">Down</option>
+                <option value="3">Up</option>
+            </select>
+            <br><br>
+            Glimepiride: <select name="glimepiride">
+                <option value="0">No</option>
+                <option value="1">Steady</option>
+                <option value="2">Down</option>
+                <option value="3">Up</option>
+            </select>
+            <br><br>
+            Acetohexamide: <select name="acetohexamide">
+                <option value="0">No</option>
+                <option value="1">Steady</option>
+            </select>
+            <br><br>
+            Glipizide: <select name="glipizide">
+                <option value="0">No</option>
+                <option value="1">Steady</option>
+                <option value="2">Up</option>
+                <option value="3">Down</option>
+            </select>
+            <br><br>
+            Glyburide: <select name="glyburide">
+                <option value="0">No</option>
+                <option value="1">Steady</option>
+                <option value="2">Up</option>
+                <option value="3">Down</option>
+            </select>
+            <br><br>
+            Tolbutamide: <select name="tolbutamide">
+                <option value="0">No</option>
+                <option value="1">Steady</option>
+            </select>
+            <br><br>
+            Pioglitazone: <select name="pioglitazone">
+                <option value="0">No</option>
+                <option value="1">Steady</option>
+                <option value="2">Up</option>
+                <option value="3">Down</option>
+            </select>
+            <br><br>
+            Rosiglitazone: <select name="rosiglitazone">
+                <option value="0">No</option>
+                <option value="1">Steady</option>
+                <option value="2">Up</option>
+                <option value="3">Down</option>
+            </select>
+            <br><br>
+            Acarbose: <select name="acarbose">
+                <option value="0">No</option>
+                <option value="1">Steady</option>
+                <option value="2">Up</option>
+                <option value="3">Down</option>
+            </select>
+            <br><br>
+            Miglitol: <select name="miglitol">
+                <option value="0">No</option>
+                <option value="1">Steady</option>
+                <option value="2">Down</option>
+                <option value="3">Up</option>
+            </select>
+            <br><br>
+            Troglitazone: <select name="troglitazone">
+                <option value="0">No</option>
+                <option value="1">Steady</option>
+            </select>
+            <br><br>
+            Tolazamide: <select name="tolazamide">
+                <option value="0">No</option>
+                <option value="1">Steady</option>
+                <option value="2">Up</option>
+            </select>
+            <br><br>
+            Insulin: <select name="insulin">
+                <option value="0">No</option>
+                <option value="1">Up</option>
+                <option value="2">Steady</option>
+                <option value="3">Down</option>
+            </select>
+            <br><br>
+            Glyburide - Metformin: <select name="glyburide_metformin">
+                <option value="0">No</option>
+                <option value="1">Steady</option>
+                <option value="2">Down</option>
+                <option value="3">Up</option>
+            </select>
+            <br><br>
+            Glipizide - Metformin: <select name="glipizide_metformin">
+                <option value="0">No</option>
+                <option value="1">Steady</option>
+            </select>
+            <br><br>
+            Glimepiride - Pioglitazone: <select name="glimepiride_pioglitazone">
+                <option value="0">No</option>
+                <option value="1">Steady</option>
+            </select>
+            <br><br>
+            Metformin - Rosiglitazone: <select name="metformin_rosiglitazone">
+                <option value="0">No</option>
+                <option value="1">Steady</option>
+            </select>
+            <br><br>
+            Metformin - Pioglitazone: <select name="metformin_pioglitazone">
+                <option value="0">No</option>
+                <option value="1">Steady</option>
+            </select>
+            <br><br>
+            Change in Medication: <select name="change">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+            <br><br>
+            Diabetes Medicine Prescibed?: <select name="diabetesMed">
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+            <br><br>
+            <div style="clear: both;">
+            <button class="w3-button w3-black w3-margin-bottom" type="submit" value="Submit">Submit</button>
+            <button class="w3-button w3-black w3-margin-bottom" type="reset" value="Reset">Reset</button>
+            </div>
+        </form>
+        <footer class="w3-container w3-padding-16 w3-center w3-opacity w3-light-grey w3-large" style="bottom: 0;width: 100%;">
+            <label> Created by Atharva N. Joshi for IMS Term 3 Project </label>
+          </footer>
+        </body>
+</html>
