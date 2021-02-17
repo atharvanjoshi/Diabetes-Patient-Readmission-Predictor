@@ -1,0 +1,6 @@
+I am a student of IMS Post Graduate Diploma in Data Science at Shivaji Nagar, Pune branch currently in the process of completing the last term (Term 3) of the course. 
+I have completed all the internal assessments and also I have completed the End - to - End 1 Project. 
+However, I am not able to upload the project on the IMS Moodle Portal as there is a limit of 2 MB for the upload and the project contains a 'pickle' file 
+which is an important one because it contains the actual model. I cannot upload it on Git and subsequently on Azure or Heroku since Git supports only 25 MB file. 
+I have tried Git Large File Support but to no avail. I have however uploaded the project on Google Drive. 
+You can find the project here: https://drive.google.com/drive/folders/1SqsXop7mEfgvFQKPo0l2FyLNXkkHwuSq?usp=sharing
